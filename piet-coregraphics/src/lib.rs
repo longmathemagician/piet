@@ -532,7 +532,7 @@ impl<'a> RenderContext for CoreGraphicsContext<'a> {
         let blur_iterations: usize =
             (_blur_radius as usize - blur_radius_min) / blur_increment_size;
 
-        let image = _image.as_ref().ok_or(Error::InvalidInput)?;
+        let image = _image.as_cgimage().ok_or(Error::InvalidInput)?;
         let data = image.data();
         let source_data = data.bytes();
 
